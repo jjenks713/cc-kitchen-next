@@ -23,33 +23,35 @@ export default function MainHeader() {
 
     return (
         <>
-            <div style={{
-                backgroundImage: `url("/images/img/try-back.jpg")`,
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat'
-            }}
-                className='uppercase py-14 pb-44 pt-10 md:pt-20 px-4 md:px-72 text-center relative top-0'
-            >
-                <motion.div
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.8 }}
-                    variants={cardVariants}
-                    className='text-6xl sm:text-7xl md:text-8xl py-14'>charlees comfort kitchen</motion.div>
-                <div className='text-2xl py-14'>Homestyle cooking and catering in the heart of Utah</div>
-                <motion.div
-                    whileHover={{ scale: 1.1 }}
-                >
-                    <a
-                        href='https://charlees-comfort-kitchen.square.site'
-                        target='_black'
-                        className='border-white py-2 px-10 rounded-lg bg-gradient-to-r from-black via-gray-500 to-gray-800'
-                    >
-                        Order Now
-                    </a>
-                </motion.div>
-
-
+            <div className="hero min-h-screen" style={{ backgroundImage: `url("/images/img/try-back.jpg")` }}>
+                <div className="col-start-1 row-start-1 w-full h-full bg-gradient-to-t from-black to-transparent bg-opacity-90"></div>
+                <div className="hero-content text-center text-white">
+                    <div className="max-w-lg">
+                        <motion.div
+                            initial="offscreen"
+                            whileInView="onscreen"
+                            viewport={{ once: true, amount: 0.8 }}
+                            variants={cardVariants}
+                            className='text-5xl sm:text-7xl md:text-8xl pb-14 uppercase mb-10'
+                        >
+                            charlees comfort kitchen
+                        </motion.div>
+                        <p className="text-2xl mb-10">
+                            Homestyle cooking and catering in the heart of Utah
+                        </p>
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            <a
+                                href='https://charlees-comfort-kitchen.square.site'
+                                target='_black'
+                                className='btn glass text-white'
+                            >
+                                Order Now
+                            </a>
+                        </motion.div>
+                    </div>
+                </div>
             </div>
         </>
     )
