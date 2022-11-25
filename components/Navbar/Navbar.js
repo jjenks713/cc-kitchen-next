@@ -27,7 +27,7 @@ export const Navbar = (props) => {
                     </Link>
                 </div>
                 <div className="justify-end sm:navbar-center">
-                    <div className='flex sm:hidden'>
+                    <div className='flex lg:hidden'>
                         <div className="dropdown">
                             <label tabIndex={0} className="btn glass btn-circle text-black">
                                 <MenuIcon />
@@ -35,11 +35,11 @@ export const Navbar = (props) => {
                             <NavTabs mobile={true} />
                         </div>
                     </div>
-                    <div className='hidden sm:flex'>
+                    <div className='hidden lg:flex'>
                         <NavTabs mobile={false} pageNumber={pageNumber} />
                     </div>
                 </div>
-                <div className="navbar-end hidden sm:flex">
+                <div className="navbar-end hidden lg:flex">
                     <motion.a
                         href='https://charlees-comfort-kitchen.square.site' target='_blank' rel="noreferrer"
                         whileHover={{ scale: 1.1 }}

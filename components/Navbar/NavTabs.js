@@ -3,8 +3,8 @@ import Link from "next/link";
 export const NavTabs = (props) => {
 
     return (
-        <div className="navbar-center hidden lg:flex text-black">
-            <ul className={props.mobile ? "menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52" : "menu menu-horizontal p-0"}>
+        <div className="text-black">
+            <ul className={props.mobile ? "menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-white text-left" : "menu menu-horizontal p-0"}>
                 <li>
                     <a
                         href='https://charlees-comfort-kitchen.square.site' target='_blank' rel="noreferrer"
