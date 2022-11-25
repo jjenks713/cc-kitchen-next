@@ -1,7 +1,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 
-export default function MainHeader() {
+export default function MainHeader(props) {
 
     let cardVariants = {
         offscreen: {
@@ -30,11 +30,10 @@ export default function MainHeader() {
                         <motion.div
                             initial="offscreen"
                             whileInView="onscreen"
-                            viewport={{ once: true, amount: 0.8 }}
                             variants={cardVariants}
                             className='text-5xl sm:text-7xl md:text-8xl pb-14 uppercase mb-10'
                         >
-                            charlees comfort kitchen
+                            {props.header}
                         </motion.div>
                         <p className="text-2xl mb-10">
                             Homestyle cooking and catering in the heart of Utah

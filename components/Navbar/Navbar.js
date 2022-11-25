@@ -3,67 +3,21 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
+import { NavTabs } from './NavTabs';
 
-export const Navbar = () => {
+export const Navbar = (props) => {
     const [active, setActive] = useState(false);
 
     const handleClick = () => {
         setActive(!active);
     };
 
+    const pageNumber = props.pageNumber;
+
     return (
         <>
-            <div className="navbar bg-white bg-opacity-90 px-4 sm:px-10">
+            <div className="navbar fixed z-50 bg-white bg-opacity-90 px-4 sm:px-10">
                 <div className="navbar-start">
-                    <div className="dropdown">
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            <label tabIndex={0} className="btn glass btn-circle text-black">
-                                <MenuIcon />
-                            </label>
-                        </motion.div>
-
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <a
-                                    href='https://charlees-comfort-kitchen.square.site' target='_blank' rel="noreferrer"
-                                    whileHover={{ scale: 1.1 }}
-                                    className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center hover:bg-gray-600 hover:text-white cursor-pointer'
-                                >
-                                    Order
-                                </a>
-                            </li>
-                            <li>
-                                <Link href='/gallery' legacyBehavior>
-                                    <a
-                                        whileHover={{ scale: 1.1 }}
-                                        className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center hover:bg-gray-600 hover:text-white cursor-pointer'>
-                                        Gallery
-                                    </a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href='/about' legacyBehavior>
-                                    <a
-                                        whileHover={{ scale: 1.1 }}
-                                        className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center hover:bg-gray-600 hover:text-white cursor-pointer'>
-                                        About us
-                                    </a>
-                                </Link>
-                            </li>
-                            <li>
-                                <a
-                                    href='https://forms.gle/KQfYGABjRg4Mi2gC9' target='_blank' rel="noreferrer"
-                                    whileHover={{ scale: 1.1 }}
-                                    className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center hover:bg-gray-600 hover:text-white cursor-pointer'>
-                                    subscribe
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="navbar-center">
                     <Link href='/' legacyBehavior>
                         <motion.a
                             whileHover={{ scale: 1.1 }}
@@ -72,7 +26,20 @@ export const Navbar = () => {
                         </motion.a>
                     </Link>
                 </div>
-                <div className="navbar-end">
+                <div className="justify-end sm:navbar-center">
+                    <div className='flex sm:hidden'>
+                        <div className="dropdown">
+                            <label tabIndex={0} className="btn glass btn-circle text-black">
+                                <MenuIcon />
+                            </label>
+                            <NavTabs mobile={true} />
+                        </div>
+                    </div>
+                    <div className='hidden sm:flex'>
+                        <NavTabs mobile={false} pageNumber={pageNumber} />
+                    </div>
+                </div>
+                <div className="navbar-end hidden sm:flex">
                     <motion.a
                         href='https://charlees-comfort-kitchen.square.site' target='_blank' rel="noreferrer"
                         whileHover={{ scale: 1.1 }}
