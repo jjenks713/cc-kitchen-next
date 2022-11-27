@@ -1,10 +1,8 @@
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import { Navbar } from '../components/Navbar/Navbar'
 import MainHeader from '../components/MainHeader/MainHeader'
-import Menu from '../components/Menu/Menu'
-import RestaurantIcon from '@mui/icons-material/Restaurant';
 import Footer from '../components/Footer/Footer'
 import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
 import InfoStrip from '../components/InfoStrip/InfoStrip'
@@ -12,6 +10,25 @@ import InfoStrip from '../components/InfoStrip/InfoStrip'
 export default function Home() {
     const pageNumber = 1;
     const header = "Gallery";
+    const [apiData, setApiData] = useState()
+
+    useEffect(() => {
+        callAPI();
+        async function callAPI() {
+            try {
+                const res = await fetch(
+                    "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=9c99e6100070bcf819159947e32ce80a&user_id=194257058%40N07&format=json&nojsoncallback=1"
+                );
+                const data = await res.json();
+                setApiData(data.photos.photo)
+                console.log(data)
+            } catch (err) {
+                console.log(err);
+                alert("there was an error please reload the page")
+            }
+        };
+    }, []);
+
     return (
         <div>
             <Head>
@@ -23,6 +40,35 @@ export default function Home() {
             <main>
                 <Navbar pageNumber={pageNumber} />
                 <MainHeader header={header} />
+                <div className='flex justify-center flex-wrap flex-row-reverse mx-4 md:mx-40'>
+                    {apiData ?
+                        <>
+                            {
+                                apiData.map((photo) => (
+                                    <>
+                                        <div className='m-10 rounded-lg'>
+                                            <Image
+                                                loader={
+                                                    () => `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
+                                                }
+                                                src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
+                                                alt={photo.title}
+                                                width={300}
+                                                height={300}
+                                                className='rounded-xl'
+                                            />
+
+                                            <div className='py-3 text-center text-xl'>{photo.title}</div>
+                                        </div>
+                                    </>
+                                ))
+                            }
+                        </>
+
+                        : null
+                    }
+
+                </div>
                 <SubscribePanel />
                 <InfoStrip />
             </main>
