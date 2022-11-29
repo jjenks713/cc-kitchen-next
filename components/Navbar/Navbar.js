@@ -16,7 +16,7 @@ export const Navbar = (props) => {
 
     return (
         <>
-            <div className="navbar fixed z-50 bg-white bg-opacity-90 px-4 sm:px-10">
+            <div className="navbar fixed z-50 bg-white/70 backdrop-blur-sm px-4 sm:px-10">
                 <div className="navbar-start">
                     <Link href='/' legacyBehavior>
                         <motion.a
