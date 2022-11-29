@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useState } from "react";
 
 export const NavTabs = (props) => {
+
+    const [pageNumber, setPageNumber] = useState(0)
 
     return (
         <div className="text-black">
@@ -19,11 +22,12 @@ export const NavTabs = (props) => {
                         <a
                             whileHover={{ scale: 1.1 }}
                             className={
-                                props.pageNumber == 1 ?
+                                pageNumber === 1 ?
                                     'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center border-b-4 border-gray-600'
                                     :
                                     'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-centerte hover:bg-gray-600 hover:text-white cursor-pointer'
                             }
+                            onClick={() => setPageNumber(1)}
                         >
                             Gallery
                         </a>
@@ -34,11 +38,12 @@ export const NavTabs = (props) => {
                         <a
                             whileHover={{ scale: 1.1 }}
                             className={
-                                props.pageNumber == 2 ?
+                                pageNumber === 2 ?
                                     'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center border-b-4 border-gray-600'
                                     :
                                     'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-centerte hover:bg-gray-600 hover:text-white cursor-pointer'
                             }
+                            onClick={() => setPageNumber(2)}
                         >
                             About
                         </a>
@@ -49,11 +54,12 @@ export const NavTabs = (props) => {
                         <a
                             whileHover={{ scale: 1.1 }}
                             className={
-                                props.pageNumber == 3 ?
+                                pageNumber === 3 ?
                                     'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center border-b-4 border-gray-600'
                                     :
                                     'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-centerte hover:bg-gray-600 hover:text-white cursor-pointer'
                             }
+                            onClick={() => setPageNumber(3)}
                         >
                             Calender
                         </a>
@@ -68,6 +74,6 @@ export const NavTabs = (props) => {
                     </a>
                 </li>
             </ul>
-        </div>
+        </div >
     )
 }
