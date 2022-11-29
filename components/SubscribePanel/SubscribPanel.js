@@ -21,7 +21,18 @@ export default function SubscribePanel() {
                     Subscribe
                 </div>
                 <div className="flex justify-center">
-                    <OrderNowButton />
+                    <motion.a
+                        whileHover={{ scale: 1.2 }}
+                        href='https://forms.gle/KQfYGABjRg4Mi2gC9'
+                        target='_blank'
+                        className='btn glass my-4'
+                        rel="noreferrer"
+                        style={{
+                            color: "white"
+                        }}
+                    >
+                        Subscribe
+                    </motion.a>
                 </div>
             </div>
         </div>

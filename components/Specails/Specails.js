@@ -4,7 +4,7 @@ import Image from "next/image";
 import OrderNowButton from "../OrderNowButton/OrderNowButton"
 
 export default function Menu() {
-
+    const buttonColor = "white"
     const [apiData, setApiData] = useState()
 
     useEffect(() => {
@@ -54,7 +54,7 @@ export default function Menu() {
                     null
                 }
             </div>
-            <OrderNowButton />
+            <OrderNowButton buttonColor={buttonColor} />
         </div>
     )
 }

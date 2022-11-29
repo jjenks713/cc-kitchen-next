@@ -33,7 +33,7 @@ export default function ImageCarousel() {
                 <div className="col-start-1 row-start-1 bg-gradient-to-t from-black to-transparent bg-opacity-90"></div>
                 <div className="text-4xl py-10 text-center link link-hover"><Link href="/gallery">Check out our full Gallery</Link></div>
                 <div className="flex mx-auto w-1/2 border-b-2 border-black mb-2"></div>
-                <div className="flex justify-center py-20">
+                <div className="flex justify-center py-14 md:py-20">
                     {imageArray.map((image, index) => (
                         <>
                             {indexTab == index ?
