@@ -4,12 +4,15 @@ import InfoStrip from '../components/InfoStrip/InfoStrip'
 import Footer from '../components/Footer/Footer'
 import MainHeader from '../components/MainHeader/MainHeader'
 import Menu from '../components/Menu/Menu'
-import RestaurantIcon from '@mui/icons-material/Restaurant';
 import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
 import ImageCarousel from '../components/ImageCarousel/ImageCarousel'
 
 export default function Home() {
-  const header = "Charlees Comfort Kitchen";
+  const header = {
+    title: "Charlees Comfort Kitchen",
+    headline: "Homestyle cooking in the heart of Utah",
+    button: true
+  };
   return (
     <div>
       <Head>

@@ -15,7 +15,8 @@ export default function Menu() {
         <div className='text-center py-20 bg-gradient-to-t from-black to-transparent px-4 sm:px-40'>
             <div className='text-8xl'>Menu</div>
             <Specials />
-            <div className="text-4xl">Menu</div>
+            <div className="divider"></div>
+            <div className="text-4xl mt-10">Menu</div>
             <div className="flex flex-wrap justify-center">
                 {infoArray.map((info, index) => (
                     <div key={index}>

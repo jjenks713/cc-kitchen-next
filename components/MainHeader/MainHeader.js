@@ -3,6 +3,8 @@ import { motion } from "framer-motion"
 
 export default function MainHeader(props) {
 
+    const header = props.header;
+
     let cardVariants = {
         offscreen: {
             y: 300,
@@ -29,26 +31,30 @@ export default function MainHeader(props) {
                     <div className="max-w-lg">
                         <motion.div
                             initial="offscreen"
-                            whileInView="onscreen"
+                            animate="onscreen"
                             variants={cardVariants}
                             className='text-5xl sm:text-7xl md:text-8xl pb-14 uppercase mb-10'
                         >
-                            {props.header}
+                            {header.title}
                         </motion.div>
                         <p className="text-2xl mb-10">
-                            Homestyle cooking and catering in the heart of Utah
+                            {header.headline}
                         </p>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            <a
-                                href='https://charlees-comfort-kitchen.square.site'
-                                target='_black'
-                                className='btn glass text-white'
+                        {header.button ?
+                            <motion.div
+                                whileHover={{ scale: 1.1 }}
                             >
-                                Order Now
-                            </a>
-                        </motion.div>
+                                <a
+                                    href='https://charlees-comfort-kitchen.square.site'
+                                    target='_black'
+                                    className='btn glass text-white'
+                                >
+                                    Order Now
+                                </a>
+                            </motion.div>
+                            :
+                            null
+                        }
                     </div>
                 </div>
             </div>

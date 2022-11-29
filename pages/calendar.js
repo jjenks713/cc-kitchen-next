@@ -1,17 +1,18 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import { Navbar } from '../components/Navbar/Navbar'
 import MainHeader from '../components/MainHeader/MainHeader'
-import Menu from '../components/Menu/Menu'
-import RestaurantIcon from '@mui/icons-material/Restaurant';
 import Footer from '../components/Footer/Footer'
 import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
 import InfoStrip from '../components/InfoStrip/InfoStrip'
 
 export default function Home() {
     const pageNumber = 3;
-    const header = "Calendar";
+    const header = {
+        title: "Calendar",
+        headline: "Calendar of our events and specials below",
+        button: true
+    };
+
     return (
         <div>
             <Head>
@@ -23,6 +24,16 @@ export default function Home() {
             <main>
                 <Navbar pageNumber={pageNumber} />
                 <MainHeader header={header} />
+                <div class="flex justify-center py-20 mb-20">
+                    <iframe
+                        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23616161&ctz=America%2FDenver&showTabs=0&src=Y2hhcmxlZXNjb21mb3J0a2l0Y2hlbkBnbWFpbC5jb20&color=%23039BE5"
+                        style={{ border: "solid 1px #777" }}
+                        width="800"
+                        height="600"
+                        frameborder="0"
+                        scrolling="no"></iframe>
+
+                </div>
                 <SubscribePanel />
                 <InfoStrip />
             </main>
