@@ -30,4 +30,8 @@ a {
     color: white;
     background: black;
   }
+
+  .card-body {
+    background-color: rgb(31 41 55);
+  }
 }
