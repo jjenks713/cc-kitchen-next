@@ -24,6 +24,8 @@ a {
 .card-body {
   background-color: rgb(31 41 55);
   border-radius: 0.75rem;
+  color: white;
+
 }
 
 @media (prefers-color-scheme: dark) {
