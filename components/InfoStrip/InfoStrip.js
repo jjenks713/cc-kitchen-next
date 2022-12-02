@@ -11,7 +11,7 @@ export default function InfoStrip() {
                         <div className="card-body items-center text-center">
                             {info.icon}
                             <h2 className="card-title">{info.title}</h2>
-                            <div className="w-1/2 border-b-2 border-black mb-2"></div>
+                            <div className="w-1/2 border-b-2 border-white mb-2"></div>
                             <a href={info.link} className="link link-hover">{info.info}</a>
                             {info.phone ?
                                 <a href="tel:4352263635" className="link link-hover">{info.phone}</a>

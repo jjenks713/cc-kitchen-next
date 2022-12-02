@@ -1,45 +1,85 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavTabs } from './NavTabs';
 
 export const Navbar = (props) => {
     const [active, setActive] = useState(false);
 
-    const handleClick = () => {
-        setActive(!active);
+    const useMediaQuery = (width) => {
+        const [targetReached, setTargetReached] = useState(false);
+
+        const updateTarget = useCallback((e) => {
+            if (e.matches) {
+                setTargetReached(true);
+            } else {
+                setTargetReached(false);
+            }
+        }, []);
+
+        useEffect(() => {
+            const media = window.matchMedia(`(max-width: ${width}px)`);
+            media.addListener(updateTarget);
+
+            // Check on mount (callback is not called until a change occurs)
+            if (media.matches) {
+                setTargetReached(true);
+            }
+
+            return () => media.removeListener(updateTarget);
+        }, []);
+
+        return targetReached;
     };
 
     const pageNumber = props.pageNumber;
+    const isBreakpoint = useMediaQuery(1023)
 
     return (
         <>
             <div className="navbar fixed z-50 bg-white/70 backdrop-blur-sm px-4 sm:px-10">
-                <div className="navbar-start">
-                    <Link href='/' legacyBehavior>
-                        <motion.a
-                            whileHover={{ scale: 1.1 }}
-                            className='inline-flex items-center p-2 text-black cursor-pointer'>
-                            <Image src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
-                        </motion.a>
-                    </Link>
-                </div>
-                <div className="justify-end sm:navbar-center">
-                    <div className='flex lg:hidden'>
-                        <div className="dropdown">
-                            <label tabIndex={0} className="btn glass btn-circle text-black">
-                                <MenuIcon />
-                            </label>
-                            <NavTabs mobile={true} />
+                {isBreakpoint ?
+                    <>
+                        <div className="flex w-full">
+                            <div className="dropdown absolute">
+                                <label tabIndex={0} className="btn glass btn-circle text-black">
+                                    <MenuIcon />
+                                </label>
+                                <NavTabs mobile={true} />
+                            </div>
+                            <div className='mx-auto'>
+                                <Link href='/' legacyBehavior>
+                                    <motion.a
+                                        whileHover={{ scale: 1.1 }}
+                                        className='inline-flex items-center p-2 text-black cursor-pointer'>
+                                        <Image src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
+                                    </motion.a>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                    <div className='hidden lg:flex'>
-                        <NavTabs mobile={false} pageNumber={pageNumber} />
-                    </div>
-                </div>
-                <div className="navbar-end hidden lg:flex">
+                    </>
+                    :
+                    <>
+                        <div className="navbar-start">
+                            <Link href='/' legacyBehavior>
+                                <motion.a
+                                    whileHover={{ scale: 1.1 }}
+                                    className='inline-flex items-center p-2 text-black cursor-pointer'>
+                                    <Image src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
+                                </motion.a>
+                            </Link>
+                        </div>
+                        <div className="navbar-center">
+                            <div className='hidden lg:flex'>
+                                <NavTabs mobile={false} pageNumber={pageNumber} />
+                            </div>
+                        </div>
+                    </>
+
+                }
+                <div className="hidden navbar-end lg:flex">
                     <motion.a
                         href='https://charlees-comfort-kitchen.square.site' target='_blank' rel="noreferrer"
                         whileHover={{ scale: 1.1 }}
