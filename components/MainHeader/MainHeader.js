@@ -28,7 +28,7 @@ export default function MainHeader(props) {
             <div className="hero min-h-screen" style={{ backgroundImage: `url("/images/img/try-back.jpg")` }}>
                 <div className="col-start-1 row-start-1 w-full h-full bg-gradient-to-t from-black to-transparent bg-opacity-90"></div>
                 <div className="hero-content text-center text-white">
-                    <div className="max-w-lg">
+                    <div className="max-w-lg pt-32 xs:pt-0">
                         <motion.div
                             initial="offscreen"
                             animate="onscreen"
