@@ -4,6 +4,7 @@ import { useState } from "react";
 export const NavTabs = (props) => {
 
     const [pageNumber, setPageNumber] = useState(0)
+    console.log(props)
 
     return (
         <div className="text-black">

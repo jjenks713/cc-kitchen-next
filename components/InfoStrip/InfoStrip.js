@@ -1,8 +1,8 @@
 import Image from "next/image"
+import { useState, useEffect } from "react"
 import { info } from "./InfoStripData"
 
-export default function InfoStrip() {
-
+export default function InfoStrip(props) {
     return (
         <div className='flex flex-wrap py-20 justify-center text-black'>
             {info.map((info) => (

@@ -34,7 +34,6 @@ export const Navbar = (props) => {
         return targetReached;
     };
 
-    const pageNumber = props.pageNumber;
     const isBreakpoint = useMediaQuery(1023)
 
     return (
@@ -73,7 +72,7 @@ export const Navbar = (props) => {
                         </div>
                         <div className="navbar-center">
                             <div className='hidden lg:flex'>
-                                <NavTabs mobile={false} pageNumber={pageNumber} />
+                                <NavTabs mobile={false} />
                             </div>
                         </div>
                     </>
