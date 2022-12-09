@@ -21,12 +21,7 @@ export const NavTabs = (props) => {
                     <Link href='/gallery' legacyBehavior>
                         <a
                             whileHover={{ scale: 1.1 }}
-                            className={
-                                pageNumber === 1 ?
-                                    'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center border-b-4 border-gray-600'
-                                    :
-                                    'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-centerte hover:bg-gray-600 hover:text-white cursor-pointer'
-                            }
+                            className='text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-centerte hover:bg-gray-600 hover:text-white cursor-pointer'
                             onClick={() => setPageNumber(1)}
                         >
                             Gallery
@@ -37,12 +32,7 @@ export const NavTabs = (props) => {
                     <Link href='/about' legacyBehavior>
                         <a
                             whileHover={{ scale: 1.1 }}
-                            className={
-                                pageNumber === 2 ?
-                                    'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center border-b-4 border-gray-600'
-                                    :
-                                    'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-centerte hover:bg-gray-600 hover:text-white cursor-pointer'
-                            }
+                            className='text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-centerte hover:bg-gray-600 hover:text-white cursor-pointer'
                             onClick={() => setPageNumber(2)}
                         >
                             About
@@ -53,12 +43,7 @@ export const NavTabs = (props) => {
                     <Link href='/calendar' legacyBehavior>
                         <a
                             whileHover={{ scale: 1.1 }}
-                            className={
-                                pageNumber === 3 ?
-                                    'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center border-b-4 border-gray-600'
-                                    :
-                                    'text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-centerte hover:bg-gray-600 hover:text-white cursor-pointer'
-                            }
+                            className='text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-centerte hover:bg-gray-600 hover:text-white cursor-pointer'
                             onClick={() => setPageNumber(3)}
                         >
                             Calender
