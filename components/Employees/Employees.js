@@ -10,18 +10,17 @@ export default function Employees(props) {
                 {
                     employees.map((items) => (
                         <>
-
-                            <div className="card w-96 bg-base-100 shadow-xl mx-10">
-                                <figure><img src={items.photo.url} alt={items.name} /></figure>
+                            <div className="card card-side bg-base-100 shadow-xl m-10">
+                                <figure><img className="w-72" src={items.photo.url} alt={items.name} /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{items.name}</h2>
                                     <p>{items.jobTitle}</p>
-                                    {items.description ? <p className="text-xs">{items.description}</p> : null}
-                                    {items.link ? <a href={items.link} target="_blank" rel="noreferrer">Click here to find out more about them</a> : null}
-
+                                    {items.description ? <p className="text-xs w-52 py-4">{items.description}</p> : null}
+                                    <div className="card-actions justify-end">
+                                        {items.link ? <a href={items.link} target="_blank" rel="noreferrer" className="btn glass">find out more about {items.firstName}</a> : null}
+                                    </div>
                                 </div>
                             </div>
-
                         </>
                     ))
                 }

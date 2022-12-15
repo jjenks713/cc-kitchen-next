@@ -1,12 +1,13 @@
 import MainHeader from '../components/MainHeader/MainHeader'
 import Head from 'next/head';
+import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
+import InfoStrip from '../components/InfoStrip/InfoStrip'
+import { getInfoCards, getHeaders } from '../lib/api'
 
-export default function Home() {
-    const header = {
-        title: "Calendar",
-        headline: "Calendar of our events and specials below",
-        button: true
-    };
+
+export default function Home({ preview, infoCards, headers }) {
+
+    const page = 4
 
     return (
         <div>
@@ -16,7 +17,7 @@ export default function Home() {
                 <link rel="icon" href={"/images/img/logo2.png"} />
             </Head>
             <main>
-                <MainHeader header={header} />
+                <MainHeader header={headers} page={page} />
                 <div class="flex justify-center py-20 mb-20 mx-4">
                     <iframe
                         src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23616161&ctz=America%2FDenver&showTabs=0&src=Y2hhcmxlZXNjb21mb3J0a2l0Y2hlbkBnbWFpbC5jb20&color=%23039BE5"
@@ -28,6 +29,19 @@ export default function Home() {
 
                 </div>
             </main>
+            <SubscribePanel />
+            <InfoStrip infoCards={infoCards} />
         </div>
     )
 }
+
+
+export async function getStaticProps({ preview = true }) {
+    const infoCards = (await getInfoCards(preview)) ?? []
+    const headers = (await getHeaders(preview)) ?? []
+
+    return {
+        props: { preview, infoCards, headers },
+    }
+}
+

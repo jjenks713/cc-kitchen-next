@@ -53,7 +53,7 @@ export const Navbar = (props) => {
                                     <motion.a
                                         whileHover={{ scale: 1.1 }}
                                         className='inline-flex items-center p-2 text-black cursor-pointer'>
-                                        <Image src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
+                                        <img src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
                                     </motion.a>
                                 </Link>
                             </div>
@@ -66,7 +66,7 @@ export const Navbar = (props) => {
                                 <motion.a
                                     whileHover={{ scale: 1.1 }}
                                     className='inline-flex items-center p-2 text-black cursor-pointer'>
-                                    <Image src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
+                                    <img src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
                                 </motion.a>
                             </Link>
                         </div>

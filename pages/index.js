@@ -2,13 +2,13 @@ import MainHeader from '../components/MainHeader/MainHeader'
 import Menu from '../components/Menu/Menu'
 import ImageCarousel from '../components/ImageCarousel/ImageCarousel'
 import Head from 'next/head';
+import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
+import InfoStrip from '../components/InfoStrip/InfoStrip'
+import { getHeaders, getInfoCards, getMenu } from '../lib/api'
 
-export default function Home() {
-  const header = {
-    title: "Charlees Comfort Kitchen",
-    headline: "Homestyle cooking in the heart of Utah",
-    button: true
-  };
+export default function Home({ preview, infoCards, headers, menu }) {
+
+  const page = 1
 
   return (
     <div>
@@ -18,10 +18,23 @@ export default function Home() {
         <link rel="icon" href={"/images/img/logo2.png"} />
       </Head>
       <main>
-        <MainHeader header={header} />
-        <Menu />
+        <MainHeader header={headers} page={page} />
+        <Menu menu={menu} />
         <ImageCarousel />
       </main>
+      <SubscribePanel />
+      <InfoStrip infoCards={infoCards} />
     </div>
   )
 }
+
+export async function getStaticProps({ preview = true }) {
+  const infoCards = (await getInfoCards(preview)) ?? []
+  const headers = (await getHeaders(preview)) ?? []
+  const menu = (await getMenu(preview)) ?? []
+
+  return {
+    props: { preview, infoCards, headers, menu },
+  }
+}
+

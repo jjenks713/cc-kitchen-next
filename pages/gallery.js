@@ -1,13 +1,14 @@
 import MainHeader from '../components/MainHeader/MainHeader'
 import GalImageList from '../components/ImageList/ImageList'
 import Head from 'next/head';
+import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
+import InfoStrip from '../components/InfoStrip/InfoStrip'
+import { getInfoCards, getHeaders } from '../lib/api'
 
-export default function Home() {
-    const header = {
-        title: "Gallery",
-        headline: "Check out some of our amazing dishes below",
-        button: true
-    };
+
+export default function Home({ preview, infoCards, headers }) {
+
+    const page = 2
 
     return (
         <div>
@@ -17,11 +18,22 @@ export default function Home() {
                 <link rel="icon" href={"/images/img/logo2.png"} />
             </Head>
             <main>
-                <MainHeader header={header} />
+                <MainHeader header={headers} page={page} />
                 <div className='flex justify-center flex-wrap flex-row-reverse'>
                     <GalImageList />
                 </div>
             </main>
+            <SubscribePanel />
+            <InfoStrip infoCards={infoCards} />
         </div>
     )
+}
+
+export async function getStaticProps({ preview = true }) {
+    const infoCards = (await getInfoCards(preview)) ?? []
+    const headers = (await getHeaders(preview)) ?? []
+
+    return {
+        props: { preview, infoCards, headers },
+    }
 }
