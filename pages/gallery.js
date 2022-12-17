@@ -3,10 +3,10 @@ import GalImageList from '../components/ImageList/ImageList'
 import Head from 'next/head';
 import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
 import InfoStrip from '../components/InfoStrip/InfoStrip'
-import { getInfoCards, getHeaders } from '../lib/api'
+import { getInfoCards, getHeaders, getGalImages } from '../lib/api'
 
 
-export default function Home({ preview, infoCards, headers }) {
+export default function Home({ preview, infoCards, headers, galImages }) {
 
     const page = 2
 
@@ -20,7 +20,7 @@ export default function Home({ preview, infoCards, headers }) {
             <main>
                 <MainHeader header={headers} page={page} />
                 <div className='flex justify-center flex-wrap flex-row-reverse'>
-                    <GalImageList />
+                    <GalImageList galImages={galImages} />
                 </div>
             </main>
             <SubscribePanel />
@@ -32,8 +32,9 @@ export default function Home({ preview, infoCards, headers }) {
 export async function getStaticProps({ preview = true }) {
     const infoCards = (await getInfoCards(preview)) ?? []
     const headers = (await getHeaders(preview)) ?? []
+    const galImages = (await getGalImages(preview)) ?? []
 
     return {
-        props: { preview, infoCards, headers },
+        props: { preview, infoCards, headers, galImages },
     }
 }
