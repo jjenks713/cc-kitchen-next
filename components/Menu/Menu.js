@@ -85,12 +85,12 @@ export default function Menu(props) {
                                                     variants={sentence}
                                                     initial="hidden"
                                                     animate="visible"
-                                                    className="flex flex-wrap">
+                                                    className="flex flex-wrap justify-start">
                                                     {outData.description.split(" ").map((char, index) => (
                                                         <motion.p
                                                             key={index}
                                                             variants={letter}
-                                                            style={{ marginRight: "3px", float: "left" }}
+                                                            className="flex justify-start mr-1"
                                                         >
                                                             {char}
                                                         </motion.p>

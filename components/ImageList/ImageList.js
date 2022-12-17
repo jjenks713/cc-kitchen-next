@@ -2,54 +2,21 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import { useState, useEffect } from 'react';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import { useState } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
-import { motion } from 'framer-motion';
 import { AllInbox } from '@mui/icons-material';
 import Image from 'next/image';
 
-export default function GalImageList(galImages) {
+export default function GalImageList(props) {
 
     const [loading, setLoading] = useState(false)
-    const [tags, setTags] = useState("gallery-images")
 
-    const galleryImages = galImages.galImages.data.galleryCollection.items;
-    const navTabs = [
-        {
-            name: "All",
-            value: "gallery-images"
-        },
-        {
-            name: "Charlees Dogs",
-            value: "dogs"
-        },
-        {
-            name: "Savory",
-            value: "savory"
-        },
-        {
-            name: "Sweet",
-            value: "desserts"
-        },
-    ]
+    const galleryImages = props.galImages.data.galleryCollection.items;
+    const tags = props.tags;
 
     return (
-        <div className='my-20 mx-0 lg:mx-24'>
-            <div className='flex justify-center'>
-                <div className='flex flex-nowrap bg-gradient-to-t from-white to-black justify-center pt-10 pb-2 rounded-xl'>
-                    {navTabs.map(tabs => (
-                        <>
-                            <motion.button
-                                whileHover={{ borderBottom: "black", backgroundColor: "rgb(55 65 81)", color: "white", padding: "4px" }}
-                                className='mx-4 text-black rounded'
-                                value={tabs.value}
-                                onClick={() => setTags(tabs.value)}>
-                                {tabs.name}
-                            </motion.button>
-                        </>
-                    ))}
-                </div>
-            </div>
+        <div className='mb-20 mt-4 mx-0 lg:mx-24'>
 
             {loading ?
                 <Box sx={{ width: '100%' }}>
@@ -69,7 +36,7 @@ export default function GalImageList(galImages) {
                                 },
                             }}
                             gap={8}
-                            className='m-2 py-10 md:m-10 rounded-lg md:p-10'
+                            className='m-2 md:mb-10 rounded-lg md:p-10'
                         >
                             {
                                 galleryImages.map((photo) => (
@@ -84,11 +51,15 @@ export default function GalImageList(galImages) {
                                                             height={100}
                                                             src={photo.image.url}
                                                             alt={photo.title}
-                                                            className='rounded-xl shadow-lg shadow-gray-400'
+                                                            className='rounded-xl shadow-lg shadow-gray-700'
                                                             layout="responsive"
                                                             loading="lazy"
                                                         />
-                                                        <div className='py-3 text-center text-xl'>{photo.title}</div>
+                                                        <ImageListItemBar
+                                                            title={photo.title}
+                                                            subtitle={photo.description}
+                                                            className="rounded-b-xl"
+                                                        />
                                                     </ImageListItem>
                                                     :
                                                     null
