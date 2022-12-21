@@ -29,7 +29,7 @@ export default function InfoStrip(props) {
                             {info.address && <a href={info.address} className="link link-hover">{info.address}</a>}
                             {info.email && <a href={info.email} className="link link-hover">{info.email}</a>}
                             {info.phone && <a href={info.phone} className="link link-hover">{info.phone}</a>}
-                            {info.location &&
+                            {info.address &&
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3085.2256418945276!2d-111.58867818438938!3d39.35112652767549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874c71aeef6cb525%3A0x2fe449c62fdcffb8!2sCharlee&#39;s%20comfort%20kitchen!5e0!3m2!1sen!2sus!4v1669400653775!5m2!1sen!2sus"
                                     width="275"

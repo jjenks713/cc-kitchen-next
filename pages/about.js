@@ -10,7 +10,7 @@ import InfoStrip from '../components/InfoStrip/InfoStrip'
 export default function Home({ preview, allPosts, infoCards, headers }) {
     const page = 3
 
-    const employees = allPosts.data.teamMembersCollection.items
+    const employees = allPosts.data.teamPage.teamMembersCollection.items
 
     return (
         <div>
@@ -22,7 +22,7 @@ export default function Home({ preview, allPosts, infoCards, headers }) {
             <main>
                 <MainHeader header={headers} page={page} />
                 {/* <About /> */}
-                <div className='py-44'>
+                <div className='py-44 mx-44'>
                     <Employees employees={employees} />
                 </div>
             </main>

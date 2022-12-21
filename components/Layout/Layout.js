@@ -5,11 +5,11 @@ import Footer from '../Footer/Footer'
 export default function Layout({ children, infoCards }) {
 
     return (
-        <>
+        <div>
             <Navbar />
             {children}
             <Footer />
-        </>
+        </div>
     )
 }
 

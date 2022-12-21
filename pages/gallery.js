@@ -34,7 +34,6 @@ export default function Home({ preview, infoCards, headers, galImages }) {
     ]
 
     function setData(value, name) {
-        console.log(value, name)
         setTags(value)
         setTitle(name)
     }

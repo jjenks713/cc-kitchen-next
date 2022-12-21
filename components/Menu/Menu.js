@@ -58,7 +58,7 @@ export default function Menu(props) {
     return (
         <div className='text-center py-20 bg-gradient-to-t from-black to-transparent px-4 sm:px-40'>
             <div className='text-8xl'>Menu</div>
-            <Specials />
+            <Specials specials={props.specials} />
             <div className="divider"></div>
             <div className="text-4xl my-10">Menu</div>
             <div className="flex flex-wrap justify-center">
