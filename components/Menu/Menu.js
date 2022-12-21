@@ -7,9 +7,10 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import OrderNowButton from "../OrderNowButton/OrderNowButton";
 import { indigo } from "@mui/material/colors";
 import CloseIcon from '@mui/icons-material/Close';
+import { useMediaQuery } from "../BreakPoint/BreakPoint"
 
 export default function Menu(props) {
-
+    const isBreakpoint = useMediaQuery(1023)
     const menuData = props.menu.data.menuCollection.items
     const [isDisabled, setIsDisabled] = useState(false);
     const buttonColor = "white";
@@ -64,7 +65,11 @@ export default function Menu(props) {
             <div className="flex flex-wrap justify-center">
                 {menuData.map((info, index) => (
                     <div key={index}>
-                        <motion.div className="card w-72 bg-base-100 shadow-white shadow-lg m-4 cursor-pointer" whileHover={isDisabled ? { scale: 1 } : { scale: 1.1, rotate: 3, transition: { stiffness: 100 } }} layoutId={info.id} onClick={() => settingData(info)}>
+                        <motion.div
+                            className="card w-72 bg-base-100 shadow-white shadow-lg m-4 cursor-pointer"
+                            whileHover={isDisabled ? { scale: 1 } : { scale: 1.1, rotate: 3, transition: { stiffness: 100 } }}
+                            layoutId={info.id}
+                            onClick={isBreakpoint ? null : () => settingData(info)}>
                             <figure><img width={300} height={700} src={info.menuImage.url} alt="Album" /></figure>
                         </motion.div>
                     </div>
