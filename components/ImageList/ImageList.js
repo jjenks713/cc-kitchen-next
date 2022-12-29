@@ -2,8 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { useState, useEffect } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
+
 
 export default function GalImageList() {
 
@@ -67,7 +69,11 @@ export default function GalImageList() {
                                                 loading="lazy"
                                                 className='rounded-xl shadow-lg shadow-gray-400'
                                             />
-                                            <div className='py-3 text-center text-xl'>{photo.title}</div>
+                                            <ImageListItemBar
+                                                title={photo.title}
+                                                subtitle={photo.description}
+                                                className="rounded-b-xl"
+                                            />
                                         </ImageListItem>
                                     </>
                                 ))

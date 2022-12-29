@@ -4,8 +4,8 @@ import GalImageList from '../components/ImageList/ImageList'
 export default function Home() {
     const header = {
         title: "Gallery",
-        headline: "Check out some of our amazing dishes below",
-        button: true
+        headline: "Check out some of our previous specials below",
+        button: false
     };
 
     return (
