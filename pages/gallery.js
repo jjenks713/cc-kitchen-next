@@ -38,7 +38,6 @@ export default function Home({ preview, infoCards, headers, galImages }) {
         setTitle(name)
     }
 
-
     return (
         <div>
             <Head>
