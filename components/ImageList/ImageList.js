@@ -7,6 +7,7 @@ import { useState } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
 import { AllInbox } from '@mui/icons-material';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function GalImageList(props) {
 
@@ -44,17 +45,22 @@ export default function GalImageList(props) {
                                         {photo.contentfulMetadata.tags.map((tag) => (
                                             <>
                                                 {tags === tag.name ?
-                                                    <ImageListItem className='m-5 rounded-xl'>
+                                                    <ImageListItem className='m-5 rounded-xl relative'>
+                                                        <motion.div
+                                                            initial={{ opacity: 0 }}
+                                                            animate={{ opacity: 1 }}
+                                                        >
+                                                            <Image //eslint-disable-line
+                                                                width={100}
+                                                                height={100}
+                                                                src={photo.image.url}
+                                                                alt={photo.title}
+                                                                className='rounded-xl shadow-lg shadow-gray-700'
+                                                                layout="responsive"
+                                                                loading="lazy"
+                                                            />
+                                                        </motion.div>
 
-                                                        <Image //eslint-disable-line
-                                                            width={100}
-                                                            height={100}
-                                                            src={photo.image.url}
-                                                            alt={photo.title}
-                                                            className='rounded-xl shadow-lg shadow-gray-700'
-                                                            layout="responsive"
-                                                            loading="lazy"
-                                                        />
                                                         <ImageListItemBar
                                                             title={photo.title}
                                                             subtitle={photo.description}

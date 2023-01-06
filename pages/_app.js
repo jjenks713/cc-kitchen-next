@@ -1,10 +1,9 @@
 import '../styles/globals.css'
 import Layout from '../components/Layout/Layout'
-import { getInfoCards } from "../lib/api"
 
 function MyApp({ Component, pageProps, infoCards }) {
   return (
-    <Layout infoCards={infoCards}>
+    <Layout>
       <Component {...pageProps} />
     </Layout>
   )

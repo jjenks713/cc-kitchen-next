@@ -21,10 +21,10 @@ export default function Home({ preview, allPosts, infoCards, headers }) {
             </Head>
             <main>
                 <MainHeader header={headers} page={page} />
-                {/* <About /> */}
-                <div className='py-44 mx-44'>
+                <About />
+                {/* <div className='py-44 mx-44'>
                     <Employees employees={employees} />
-                </div>
+                </div> */}
             </main>
             <SubscribePanel />
             <InfoStrip infoCards={infoCards} />
