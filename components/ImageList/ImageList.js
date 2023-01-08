@@ -3,7 +3,9 @@ import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+
 import { useState } from 'react';
+
 import LinearProgress from '@mui/material/LinearProgress';
 import { AllInbox } from '@mui/icons-material';
 import Image from 'next/image';
@@ -72,7 +74,6 @@ export default function GalImageList(props) {
                                                 }
                                             </>
                                         ))}
-
                                     </>
                                 ))
                             }
