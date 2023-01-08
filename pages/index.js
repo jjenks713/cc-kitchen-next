@@ -4,9 +4,9 @@ import ImageCarousel from '../components/ImageCarousel/ImageCarousel'
 import Head from 'next/head';
 import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
 import InfoStrip from '../components/InfoStrip/InfoStrip'
-import { getHeaders, getInfoCards, getMenu, getSpecials } from '../lib/api'
+import { getGalImages, getHeaders, getInfoCards, getMenu, getSpecials } from '../lib/api'
 
-export default function Home({ preview, infoCards, headers, menu, specials }) {
+export default function Home({ preview, infoCards, headers, menu, specials, galImages }) {
 
   const page = 1
 
@@ -20,7 +20,7 @@ export default function Home({ preview, infoCards, headers, menu, specials }) {
       <main>
         <MainHeader header={headers} page={page} />
         <Menu menu={menu} specials={specials} />
-        <ImageCarousel />
+        <ImageCarousel galImages={galImages} />
       </main>
       <SubscribePanel />
       <InfoStrip infoCards={infoCards} />
@@ -28,14 +28,15 @@ export default function Home({ preview, infoCards, headers, menu, specials }) {
   )
 }
 
-export async function getStaticProps({ preview = true }) {
+export async function getServerSideProps({ preview = true }) {
   const infoCards = (await getInfoCards(preview)) ?? []
   const headers = (await getHeaders(preview)) ?? []
   const menu = (await getMenu(preview)) ?? []
   const specials = (await getSpecials(preview)) ?? []
+  const galImages = (await getGalImages(preview)) ?? []
 
   return {
-    props: { preview, infoCards, headers, menu, specials },
+    props: { preview, infoCards, headers, menu, specials, galImages },
   }
 }
 
