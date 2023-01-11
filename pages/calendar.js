@@ -36,7 +36,7 @@ export default function Home({ preview, infoCards, headers }) {
 }
 
 
-export async function getStaticProps({ preview = true }) {
+export async function getServerSideProps({ preview = true }) {
     const infoCards = (await getInfoCards(preview)) ?? []
     const headers = (await getHeaders(preview)) ?? []
 
