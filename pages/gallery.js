@@ -90,7 +90,7 @@ export default function Home({ preview, infoCards, headers, galImages }) {
     )
 }
 
-export async function getServerSideProps({ preview = true }) {
+export async function getStaticProps({ preview = true }) {
     const infoCards = (await getInfoCards(preview)) ?? []
     const headers = (await getHeaders(preview)) ?? []
     const galImages = (await getGalImages(preview)) ?? []
