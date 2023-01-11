@@ -4,37 +4,10 @@ import { motion } from 'framer-motion';
 import { useState, useCallback, useEffect } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavTabs } from './NavTabs';
+import { useMediaQuery } from "../BreakPoint/BreakPoint"
 
 export const Navbar = (props) => {
     const [active, setActive] = useState(false);
-
-    const useMediaQuery = (width) => {
-        const [targetReached, setTargetReached] = useState(false);
-
-        const updateTarget = useCallback((e) => {
-            if (e.matches) {
-                setTargetReached(true);
-            } else {
-                setTargetReached(false);
-            }
-        }, []);
-
-        useEffect(() => {
-            const media = window.matchMedia(`(max-width: ${width}px)`);
-            media.addListener(updateTarget);
-
-            // Check on mount (callback is not called until a change occurs)
-            if (media.matches) {
-                setTargetReached(true);
-            }
-
-            return () => media.removeListener(updateTarget);
-        }, []);
-
-        return targetReached;
-    };
-
-    const pageNumber = props.pageNumber;
     const isBreakpoint = useMediaQuery(1023)
 
     return (
@@ -54,7 +27,7 @@ export const Navbar = (props) => {
                                     <motion.a
                                         whileHover={{ scale: 1.1 }}
                                         className='inline-flex items-center p-2 text-black cursor-pointer'>
-                                        <Image src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
+                                        <img src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
                                     </motion.a>
                                 </Link>
                             </div>
@@ -67,13 +40,13 @@ export const Navbar = (props) => {
                                 <motion.a
                                     whileHover={{ scale: 1.1 }}
                                     className='inline-flex items-center p-2 text-black cursor-pointer'>
-                                    <Image src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
+                                    <img src='/images/img/logo2.png' alt="CHARLEES COMFORT KITCHEN" width={175} height={20} />
                                 </motion.a>
                             </Link>
                         </div>
                         <div className="navbar-center">
                             <div className='hidden lg:flex'>
-                                <NavTabs mobile={false} pageNumber={pageNumber} />
+                                <NavTabs mobile={false} />
                             </div>
                         </div>
                     </>
