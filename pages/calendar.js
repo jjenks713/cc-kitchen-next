@@ -1,11 +1,8 @@
 import MainHeader from '../components/MainHeader/MainHeader'
 import Head from 'next/head';
-import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
-import InfoStrip from '../components/InfoStrip/InfoStrip'
 import { getInfoCards, getHeaders } from '../lib/api'
 
-
-export default function Home({ preview, infoCards, headers }) {
+export default function Home({ preview, headers }) {
 
     const page = 4
 
@@ -29,8 +26,6 @@ export default function Home({ preview, infoCards, headers }) {
 
                 </div>
             </main>
-            <SubscribePanel />
-            <InfoStrip infoCards={infoCards} />
         </div>
     )
 }

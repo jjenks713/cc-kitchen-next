@@ -1,7 +1,3 @@
-import MapIcon from '@mui/icons-material/Map';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
-import Image from 'next/image';
 
 export default function InfoStrip(props) {
     const infoCards = props.infoCards.data.infoCardsCollection.items
