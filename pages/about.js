@@ -1,12 +1,12 @@
 import MainHeader from '../components/MainHeader/MainHeader'
 import About from '../components/About/About'
-import { getInfoCards, getHeaders } from "../lib/api.js"
+import { getInfoCards, getHeaders, getAnnouncement } from "../lib/api.js"
 import Head from 'next/head'
-import SubscribePanel from '../components/SubscribePanel/SubscribPanel'
-import InfoStrip from '../components/InfoStrip/InfoStrip'
+import Announcement from '../components/Announcement/Announcement';
+import SubscribePanel from '../components/SubscribePanel/SubscribPanel';
+import InfoStrip from '../components/InfoStrip/InfoStrip';
 
-
-export default function Home({ preview, infoCards, headers }) {
+export default function Home({ preview, headers, infoCards, announcement }) {
     const page = 3
 
     return (
@@ -22,6 +22,7 @@ export default function Home({ preview, infoCards, headers }) {
             </main>
             <SubscribePanel />
             <InfoStrip infoCards={infoCards} />
+            {announcement.data.announcement ? <Announcement announcement={announcement} /> : null}
         </div>
     )
 }
@@ -29,8 +30,9 @@ export default function Home({ preview, infoCards, headers }) {
 export async function getServerSideProps({ preview = true }) {
     const infoCards = (await getInfoCards(preview)) ?? []
     const headers = (await getHeaders(preview)) ?? []
+    const announcement = (await getAnnouncement(preview)) ?? []
 
     return {
-        props: { preview, infoCards, headers },
+        props: { preview, infoCards, headers, announcement },
     }
 }

@@ -1,7 +1,8 @@
 import '../styles/globals.css'
 import Layout from '../components/Layout/Layout'
 
-function MyApp({ Component, pageProps, infoCards }) {
+function MyApp({ Component, pageProps }) {
+
   return (
     <Layout>
       <Component {...pageProps} />
@@ -10,4 +11,3 @@ function MyApp({ Component, pageProps, infoCards }) {
 }
 
 export default MyApp
-
