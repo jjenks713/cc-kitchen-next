@@ -4,7 +4,9 @@ import Head from 'next/head';
 import { getInfoCards, getHeaders, getGalImages, getAnnouncement } from '../lib/api'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-
+import Announcement from '../components/Announcement/Announcement';
+import SubscribePanel from '../components/SubscribePanel/SubscribPanel';
+import InfoStrip from '../components/InfoStrip/InfoStrip';
 
 export default function Home({ preview, headers, galImages, announcement, infoCards }) {
     const [tags, setTags] = useState("gallery-images")
@@ -82,6 +84,9 @@ export default function Home({ preview, headers, galImages, announcement, infoCa
                     <GalImageList galImages={galImages} tags={tags} />
                 </div>
             </main>
+            <SubscribePanel />
+            <InfoStrip infoCards={infoCards} />
+            {announcement.data.announcement ? <Announcement announcement={announcement} /> : null}
         </div>
     )
 }

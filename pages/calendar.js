@@ -1,6 +1,9 @@
 import MainHeader from '../components/MainHeader/MainHeader'
 import Head from 'next/head';
 import { getInfoCards, getHeaders, getAnnouncement } from '../lib/api'
+import Announcement from '../components/Announcement/Announcement';
+import SubscribePanel from '../components/SubscribePanel/SubscribPanel';
+import InfoStrip from '../components/InfoStrip/InfoStrip';
 
 export default function Home({ preview, headers, infoCards, announcement }) {
 
@@ -26,6 +29,9 @@ export default function Home({ preview, headers, infoCards, announcement }) {
 
                 </div>
             </main>
+            <SubscribePanel />
+            <InfoStrip infoCards={infoCards} />
+            {announcement.data.announcement ? <Announcement announcement={announcement} /> : null}
         </div>
     )
 }
