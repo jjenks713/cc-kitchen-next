@@ -1,9 +1,9 @@
 import MainHeader from '../components/MainHeader/MainHeader'
 import About from '../components/About/About'
-import { getInfoCards, getHeaders } from "../lib/api.js"
+import { getInfoCards, getHeaders, getAnnouncement } from "../lib/api.js"
 import Head from 'next/head'
 
-export default function Home({ preview, headers }) {
+export default function Home({ preview, headers, infoCards, announcement }) {
     const page = 3
 
     return (
@@ -24,8 +24,9 @@ export default function Home({ preview, headers }) {
 export async function getServerSideProps({ preview = true }) {
     const infoCards = (await getInfoCards(preview)) ?? []
     const headers = (await getHeaders(preview)) ?? []
+    const announcement = (await getAnnouncement(preview)) ?? []
 
     return {
-        props: { preview, infoCards, headers },
+        props: { preview, infoCards, headers, announcement },
     }
 }

@@ -4,7 +4,7 @@ import ImageCarousel from '../components/ImageCarousel/ImageCarousel'
 import Head from 'next/head';
 import { getGalImages, getHeaders, getInfoCards, getMenu, getSpecials, getAnnouncement } from '../lib/api'
 
-export default function Home({ preview, headers, menu, specials, galImages, announcement, }) {
+export default function Home({ preview, headers, menu, specials, galImages, announcement, infoCards }) {
 
   const page = 1
 
