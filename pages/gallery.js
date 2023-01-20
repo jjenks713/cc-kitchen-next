@@ -1,12 +1,12 @@
 import MainHeader from '../components/MainHeader/MainHeader'
 import GalImageList from '../components/ImageList/ImageList'
 import Head from 'next/head';
-import { getInfoCards, getHeaders, getGalImages } from '../lib/api'
+import { getInfoCards, getHeaders, getGalImages, getAnnouncement } from '../lib/api'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 
-export default function Home({ preview, headers, galImages }) {
+export default function Home({ preview, headers, galImages, announcement, infoCards }) {
     const [tags, setTags] = useState("gallery-images")
     const [title, setTitle] = useState("All")
 
@@ -90,8 +90,9 @@ export async function getStaticProps({ preview = true }) {
     const infoCards = (await getInfoCards(preview)) ?? []
     const headers = (await getHeaders(preview)) ?? []
     const galImages = (await getGalImages(preview)) ?? []
+    const announcement = (await getAnnouncement(preview)) ?? []
 
     return {
-        props: { preview, infoCards, headers, galImages },
+        props: { preview, infoCards, headers, galImages, announcement },
     }
 }
