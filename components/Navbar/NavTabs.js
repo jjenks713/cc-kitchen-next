@@ -7,7 +7,13 @@ export const NavTabs = (props) => {
 
     return (
         <div className="text-black">
-            <ul className={props.mobile ? "menu menu-compact dropdown-content justify-left mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-white text-left" : "menu menu-horizontal p-0"}>
+            <ul
+                className={props.mobile ? "menu menu-compact dropdown-content justify-left mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-white text-left" : "menu menu-horizontal p-0"}
+                style={props.mobile ? {
+                    backgroundColor: 'rgb(31 41 55)'
+                } : {
+                    backgroundColor: 'none'
+                }}>
                 <li>
                     <a
                         href='https://charlees-comfort-kitchen.square.site' target='_blank' rel="noreferrer"
