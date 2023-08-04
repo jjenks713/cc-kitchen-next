@@ -7,7 +7,13 @@ export const NavTabs = (props) => {
 
     return (
         <div className="text-black">
-            <ul className={props.mobile ? "menu menu-compact dropdown-content justify-left mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-white text-left" : "menu menu-horizontal p-0"}>
+            <ul
+                className={props.mobile ? "menu menu-compact dropdown-content justify-left mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-white text-left" : "menu menu-horizontal p-0"}
+                style={props.mobile ? {
+                    backgroundColor: 'rgb(31 41 55)'
+                } : {
+                    backgroundColor: 'none'
+                }}>
                 <li>
                     <a
                         href='https://charlees-comfort-kitchen.square.site' target='_blank' rel="noreferrer"
@@ -56,6 +62,14 @@ export const NavTabs = (props) => {
                         whileHover={{ scale: 1.1 }}
                         className='justify-left text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center hover:bg-gray-600 hover:text-white cursor-pointer'>
                         Subscribe
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href='https://charleesheatathome.com/' target='_blank' rel="noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        className='justify-left text-xl lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center hover:bg-gray-600 hover:text-white cursor-pointer'>
+                        Heat at Home
                     </a>
                 </li>
             </ul>
