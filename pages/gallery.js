@@ -1,16 +1,17 @@
+import React, { useEffect, useState } from 'react';
 import MainHeader from '../components/MainHeader/MainHeader'
 import GalImageList from '../components/ImageList/ImageList'
 import Head from 'next/head';
 import { getInfoCards, getHeaders, getGalImages, getAnnouncement } from '../lib/api'
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import Announcement from '../components/Announcement/Announcement';
 import SubscribePanel from '../components/SubscribePanel/SubscribPanel';
 import InfoStrip from '../components/InfoStrip/InfoStrip';
+import { Stack, Box } from '@mui/material';
 
 export default function Home({ preview, headers, galImages, announcement, infoCards }) {
-    const [tags, setTags] = useState("gallery-images")
-    const [title, setTitle] = useState("All")
+    /* const [tags, setTags] = useState("gallery-images")
+    const [title, setTitle] = useState("All") */
 
     const page = 2
 
@@ -33,10 +34,10 @@ export default function Home({ preview, headers, galImages, announcement, infoCa
         },
     ]
 
-    function setData(value, name) {
+/*     function setData(value, name) {
         setTags(value)
         setTitle(name)
-    }
+    } */
 
     return (
         <div>
@@ -47,11 +48,11 @@ export default function Home({ preview, headers, galImages, announcement, infoCa
             </Head>
             <main>
                 <MainHeader header={headers} page={page} />
-                <div className='flex justify-center flex-wrap flex-row-reverse'>
-                    <div className='flex flex-col justify-center'>
-                        <div className='flex flex-nowrap bg-gradient-to-t from-white to-black justify-center pt-10 pb-2 rounded-xl'>
-                            {navTabs.map(tabs => (
-                                <>
+                <Stack className='flex justify-center flex-wrap flex-row-reverse'>
+                    <Stack justifyContent={'center'}>
+                        {/* <Box sx={{display: 'flex', justifyContent: 'center',}} >
+                            {navTabs.map((tabs, index) => (
+                                <Box key={index} sx={{backgroundColor: 'white', p: '25px', borderRadius: '15px', m: '10px' }}>
                                     <motion.button
                                         whileHover={{ borderBottom: "black", backgroundColor: "rgb(55 65 81)", color: "white" }}
                                         className='mx-4 text-black font-bold rounded '
@@ -60,11 +61,10 @@ export default function Home({ preview, headers, galImages, announcement, infoCa
                                         onClick={(e) => setData(e.target.value, e.target.name)}>
                                         {tabs.name}
                                     </motion.button>
-
-                                </>
+                                </Box>
                             ))}
-                        </div>
-                        <div className='text-white text-6xl text-center pt-10'>
+                        </Box> */}
+                        {/* <div className='text-white text-6xl text-center pt-10'>
                             <motion.div
                                 initial={{ opacity: 0, y: 100 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -77,12 +77,10 @@ export default function Home({ preview, headers, galImages, announcement, infoCa
                             >
                                 {title}
                             </motion.div>
-                        </div>
-
-                    </div>
-
-                    <GalImageList galImages={galImages} tags={tags} />
-                </div>
+                        </div> */}
+                        <GalImageList galImages={galImages} /* tags={tags} */ />
+                    </Stack>
+                </Stack>
             </main>
             <SubscribePanel />
             <InfoStrip infoCards={infoCards} />
