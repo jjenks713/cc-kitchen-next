@@ -102,13 +102,13 @@ export default function Menu(props) {
                                                     ))}
                                                 </motion.div>
 
-                                                <motion.div
+                                                {/* <motion.div
                                                     initial={{ opacity: 0, y: 100 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ stiffness: 100 }}
                                                     className="card-actions justify-center">
                                                     <OrderNowButton buttonColor={buttonColor} />
-                                                </motion.div>
+                                                </motion.div> */}
                                             </div>
                                         </motion.div>
                                     </div>
@@ -120,7 +120,7 @@ export default function Menu(props) {
             </div>
 
             <div className="justify-center text-center">
-                <OrderNowButton buttonColor={buttonColor} />
+                {/* <OrderNowButton buttonColor={buttonColor} /> */}
                 <div className="text-xl">
                     Make sure to follow us on
                     <motion.a

@@ -66,7 +66,7 @@ export default function MainHeader(props) {
                                             ))}
                                         </motion.div>
 
-                                        {header.buton ?
+                                        {/* {header.buton ?
                                             <motion.div
                                                 whileHover={{ scale: 1.1 }}
                                             >
@@ -80,7 +80,7 @@ export default function MainHeader(props) {
                                             </motion.div>
                                             :
                                             null
-                                        }
+                                        } */}
                                     </>
                                 }
 

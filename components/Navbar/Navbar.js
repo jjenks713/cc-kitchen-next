@@ -35,7 +35,7 @@ export const Navbar = (props) => {
                     </>
                     :
                     <>
-                        <div className="navbar-start">
+                        <div className="navbar">
                             <Link href='/' legacyBehavior>
                                 <motion.a
                                     whileHover={{ scale: 1.1 }}
@@ -52,7 +52,7 @@ export const Navbar = (props) => {
                     </>
 
                 }
-                <div className="hidden navbar-end lg:flex">
+                {/* <div className="hidden navbar-end lg:flex">
                     <motion.a
                         href='https://charlees-comfort-kitchen.square.site' target='_blank' rel="noreferrer"
                         whileHover={{ scale: 1.1 }}
@@ -60,7 +60,7 @@ export const Navbar = (props) => {
                     >
                         Order
                     </motion.a>
-                </div>
+                </div> */}
             </div>
         </>
     );
