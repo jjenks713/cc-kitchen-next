@@ -6,11 +6,13 @@ import { getGalImages, getHeaders, getInfoCards, getMenu, getSpecials, getAnnoun
 import Announcement from '../components/Announcement/Announcement';
 import SubscribePanel from '../components/SubscribePanel/SubscribPanel';
 import InfoStrip from '../components/InfoStrip/InfoStrip';
+import useInfoCards from '../hooks/useInfoCards';
 
-export default function Home({ preview, headers, menu, specials, galImages, announcement, infoCards }) {
+export default function Home({ preview, headers, menu, specials, galImages, announcement }) {
 
   const page = 1
-
+  const {infoCards, loading, error} = useInfoCards();
+  console.log(infoCards)
   return (
     <div>
       <Head>
@@ -24,7 +26,7 @@ export default function Home({ preview, headers, menu, specials, galImages, anno
         <ImageCarousel galImages={galImages} />
       </main>
       <SubscribePanel />
-      <InfoStrip infoCards={infoCards} />
+      {/* <InfoStrip infoCards={infoCards} /> */}
       {announcement.data.announcement ? <Announcement announcement={announcement} /> : null}
     </div>
   )

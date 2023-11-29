@@ -22,7 +22,6 @@ export default function GalImageList(props) {
   
     const count = Math.ceil(galleryImages.length / PER_PAGE);
     const _DATA = usePagination(galleryImages, PER_PAGE);
-  
     const handleChange = (e, p) => {
         setLoading(true);
         window.scrollTo({ top: 500, left: 0, behavior: 'smooth' })
@@ -30,16 +29,17 @@ export default function GalImageList(props) {
         _DATA.jump(p);
         setTimeout(() => {
             setLoading(false)
-        }, 1000)
+        }, 3000)
     };
 
 
-    console.log(galleryImages)
+    console.log(galleryImages, loading)
     return (            
         <div className='mb-20 mt-4 mx-0 lg:mx-24' style={{height: loading ? '1000px' : 'inherit'}}>
             {loading ?
-                <Box sx={{ width: '320px' }}>
-                    <LinearProgress width={'100%'} color='inherit'/>
+                <Box sx={{ width: '320px', display: 'flex', justifyContent: 'center' }}>
+                    <span className="loading loading-dots loading-lg w-44 bg-gradient-to-b from-white to-gray-900"></span>
+                    {/* <progress className="progress w-56"></progress> */}
                 </Box>
                 :
                 <>
@@ -58,37 +58,34 @@ export default function GalImageList(props) {
                             className='m-2 md:mb-10 rounded-lg md:p-10'
                         >
                             {
-                                _DATA.currentData().map((photo) => (
-                                    <>
-                                        
-                                        <ImageListItem className='m-5 rounded-xl relative'>
-                                            
-                                                <>
-                                                    <motion.div
-                                                        initial={{ opacity: 0 }}
-                                                        animate={{ opacity: 1 }}
-                                                    >
-                                                        <Image //eslint-disable-line
-                                                            width={100}
-                                                            height={100}
-                                                            src={photo.image.url}
-                                                            alt={photo.title}
-                                                            className='rounded-xl shadow-lg shadow-gray-700'
-                                                            layout="responsive"
-                                                            loading="lazy"
-                                                        />
-                                                    </motion.div>
-
-                                                    <ImageListItemBar
-                                                        title={photo.title}
-                                                        subtitle={photo.description}
-                                                        className="rounded-b-xl"
+                                _DATA.currentData().map((photo, index) => (  
+                                    <ImageListItem className='m-5 rounded-xl relative' key={index}>
+                                        {loading ? <span className="loading loading-ring loading-lg"></span>
+                                            :
+                                            <>
+                                                <motion.div
+                                                    initial={{ opacity: 0 }}
+                                                    animate={{ opacity: 1 }}
+                                                >
+                                                    <Image //eslint-disable-line
+                                                        width={100}
+                                                        height={100}
+                                                        src={photo.image.url}
+                                                        alt={photo.title}
+                                                        className='rounded-xl shadow-lg shadow-gray-700'
+                                                        layout="responsive"
+                                                        loading="lazy"
                                                     />
-                                                </> 
-                                            
-                                        </ImageListItem>
-    
-                                    </>
+                                                </motion.div>
+
+                                                <ImageListItemBar
+                                                    title={photo.title}
+                                                    subtitle={photo.description}
+                                                    className="rounded-b-xl"
+                                                />
+                                            </> 
+                                        }   
+                                    </ImageListItem>
                                 ))
                             }
                         </ImageList>

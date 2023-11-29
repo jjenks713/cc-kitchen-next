@@ -1,6 +1,6 @@
 
 export default function InfoStrip(props) {
-    const infoCards = props.infoCards.data.infoCardsCollection.items
+    const {infoCards} = props
 
     return (
         <div className='flex flex-wrap py-20 justify-center text-black'>
@@ -31,7 +31,7 @@ export default function InfoStrip(props) {
                                     width="275"
                                     height="150"
                                     style={{ border: "0", borderRadius: "20px", marginTop: "5px" }}
-                                    allowfullscreen=""
+                                    allowFullScreen=""
                                     loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade">
                                 </iframe>
