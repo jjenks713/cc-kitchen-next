@@ -54,9 +54,9 @@ export default function ImageCarousel(props) {
                         </>
                     ))}
                 </div>
-                {/* <div className="flex justify-center">
+                <div className="flex justify-center">
                     <OrderNowButton buttonColor={buttonColor} />
-                </div> */}
+                </div>
                 <div className="text-4xl py-10"></div>
             </div>
         </div>

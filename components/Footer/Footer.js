@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <footer className="footer footer-center p-4 sm:p-10 bg-gradient-to-b from-black to-gray-900 text-white rounded">
             <div className="flex text-sm sm:text-xl">
-                {/* <motion.a whileHover={{ scale: 1.1 }} a href='https://charlees-comfort-kitchen.square.site' target="_blank" rel="noreferrer" className="link link-hover">Order</motion.a> */}
+                <motion.a whileHover={{ scale: 1.1 }} a href='https://www.charleesonline.com/' target="_blank" rel="noreferrer" className="link link-hover">Order</motion.a>
                 <motion.div whileHover={{ scale: 1.1 }}>
                     <Link href="/about" className="link link-hover">About</Link>
                 </motion.div>

@@ -49,7 +49,7 @@ export default function Menu(specials) {
                 }
 
             </div>
-            {/* <OrderNowButton buttonColor={buttonColor} /> */}
+            <OrderNowButton buttonColor={buttonColor} />
         </div >
     )
 }

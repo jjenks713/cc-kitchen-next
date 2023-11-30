@@ -35,7 +35,7 @@ export const Navbar = (props) => {
                     </>
                     :
                     <>
-                        <div className="navbar">
+                        <div className="navbar-start">
                             <Link href='/' legacyBehavior>
                                 <motion.a
                                     whileHover={{ scale: 1.1 }}
@@ -49,18 +49,17 @@ export const Navbar = (props) => {
                                 <NavTabs mobile={false} />
                             </div>
                         </div>
+                        <div className="navbar-end lg:flex">
+                            <motion.a
+                                href='https://www.charleesonline.com/' target='_blank' rel="noreferrer"
+                                whileHover={{ scale: 1.1 }}
+                                className='btn glass lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center text-black hover:bg-gray-600 hover:text-white cursor-pointer'
+                            >
+                                Order
+                            </motion.a>
+                        </div>
                     </>
-
-                }
-                {/* <div className="hidden navbar-end lg:flex">
-                    <motion.a
-                        href='https://charlees-comfort-kitchen.square.site' target='_blank' rel="noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        className='btn glass lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-bold items-center justify-center text-black hover:bg-gray-600 hover:text-white cursor-pointer'
-                    >
-                        Order
-                    </motion.a>
-                </div> */}
+                }    
             </div>
         </>
     );
