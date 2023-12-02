@@ -76,12 +76,12 @@ export default function Menu(props) {
                     </div>
                 ))} */}
 
-                <div className="w-full flex md:flex-row flex-col justify-between align-center">
+                <div className="w-full flex md:flex-row flex-col my-14 justify-between align-center">
                     <div className="w-full md:w-1/2 flex-col justify-center text-center">
                         <div className="text-2xl my-10">Breakfast Menu</div>
                         <Divider color="white" />
                         <div className="w-full flex justify-center text-center my-14">
-                            <embed className="w-full h-96" src="https://drive.google.com/file/d/1LERZCJK-xpIh_O9Lyhit6PI8QNz5OtEt/preview?usp=drive_link" title="Breakfast Menu" />   
+                            <iframe className="w-full h-96" src="/breakfastMenu.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Breakfast Menu"></iframe>   
                         </div>
                     </div>
                     <div className="hidden md:flex mx-10" />
@@ -89,7 +89,7 @@ export default function Menu(props) {
                         <div className="text-2xl my-10">Lunch Menu</div>
                         <Divider color="white" />
                         <div className="w-full flex justify-center text-center my-14">
-                            <embed className="w-full h-96" src="https://drive.google.com/file/d/1hOjhlLbRLixuLxBJLnOi05Bo0mz00riK/preview?usp=drive_link" title="Lunch Menu" />  
+                            <iframe className="w-full h-96" src="/lunchMenu.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Breakfast Menu"></iframe>   
                         </div>
                     </div>                
                 </div>
@@ -99,7 +99,7 @@ export default function Menu(props) {
                         <div className="text-2xl my-10">Dinner Menu</div>
                         <Divider color="white" />
                         <div className="w-full flex justify-center text-center my-14">
-                            <embed className="w-full h-96" src="https://drive.google.com/file/d/1Br-jmFNfjXu5B4gDp8ukXT5RmooHH7TD/preview?usp=drive_link" title="Dinner Menu" />   
+                            <iframe className="w-full h-96" src="/dinnerMenu.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Breakfast Menu"></iframe>   
                         </div>
                     </div>
                     <div className="hidden md:flex mx-10" />
@@ -107,7 +107,7 @@ export default function Menu(props) {
                         <div className="text-2xl my-10">Kids Menu</div>
                         <Divider color="white" />
                         <div className="w-full flex justify-center text-center my-14">
-                            <embed className="w-full h-96" src="https://drive.google.com/file/d/1Fft1oTK7qYFyfg4ycWoGODsXVcjhTLNf/preview?usp=sharing" title="Kids Menu" />   
+                            <iframe className="w-full h-96" src="/kidsMenu.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Breakfast Menu"></iframe>   
                         </div>
                     </div>                
                 </div>
