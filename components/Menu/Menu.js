@@ -84,7 +84,7 @@ export default function Menu(props) {
                             <embed className="w-full h-96" src="https://drive.google.com/file/d/1LERZCJK-xpIh_O9Lyhit6PI8QNz5OtEt/preview?usp=drive_link" title="Breakfast Menu" />   
                         </div>
                     </div>
-                    <Divider orientation="vertical" color="black" className="hidden md:flex mx-10"  />
+                    <div className="hidden md:flex mx-10" />
                     <div className="w-full md:w-1/2 flex-col justify-center text-center">
                         <div className="text-2xl my-10">Lunch Menu</div>
                         <Divider color="white" />
@@ -102,7 +102,7 @@ export default function Menu(props) {
                             <embed className="w-full h-96" src="https://drive.google.com/file/d/1Br-jmFNfjXu5B4gDp8ukXT5RmooHH7TD/preview?usp=drive_link" title="Dinner Menu" />   
                         </div>
                     </div>
-                    <Divider orientation="vertical" color="black" className="hidden md:flex mx-10"  />
+                    <div className="hidden md:flex mx-10" />
                     <div className="w-full md:w-1/2 flex-col justify-center text-center">
                         <div className="text-2xl my-10">Kids Menu</div>
                         <Divider color="white" />
