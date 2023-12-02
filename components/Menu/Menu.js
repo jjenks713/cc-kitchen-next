@@ -8,6 +8,7 @@ import OrderNowButton from "../OrderNowButton/OrderNowButton";
 import { indigo } from "@mui/material/colors";
 import CloseIcon from '@mui/icons-material/Close';
 import { useMediaQuery } from "../BreakPoint/BreakPoint"
+import { Divider } from "@mui/material";
 
 export default function Menu(props) {
     const isBreakpoint = useMediaQuery(1023)
@@ -63,7 +64,7 @@ export default function Menu(props) {
             <div className="divider"></div>
             <div className="text-4xl my-10">Menu</div>
             <div className="flex flex-wrap justify-center">
-                {menuData.map((info, index) => (
+                {/* {menuData.map((info, index) => (
                     <div key={index}>
                         <motion.div
                             className="card w-72 bg-base-100 shadow-white shadow-lg m-4 cursor-pointer"
@@ -73,8 +74,47 @@ export default function Menu(props) {
                             <figure><img width={300} height={700} src={info.menuImage.url} alt="Album" /></figure>
                         </motion.div>
                     </div>
-                ))}
-                <div className="flex justify-center w-full absolute z-40">
+                ))} */}
+
+                <div className="w-full flex md:flex-row flex-col justify-between align-center">
+                    <div className="w-full md:w-1/2 flex-col justify-center text-center">
+                        <div className="text-2xl my-10">Breakfast Menu</div>
+                        <Divider color="white" />
+                        <div className="w-full flex justify-center text-center my-14">
+                            <iframe className="w-full h-96" src="/breakfastMenu.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Breakfast Menu"></iframe>   
+                        </div>
+                    </div>
+                    <Divider orientation="vertical" color="black" className="hidden md:flex mx-10"  />
+                    <div className="w-full md:w-1/2 flex-col justify-center text-center">
+                        <div className="text-2xl my-10">Lunch Menu</div>
+                        <Divider color="white" />
+                        <div className="w-full flex justify-center text-center my-14">
+                            <iframe className="w-full h-96" src="/lunchMenu.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Breakfast Menu"></iframe>   
+                        </div>
+                    </div>                
+                </div>
+
+                <div className="w-full flex md:flex-row flex-col justify-between align-center">
+                    <div className="w-full md:w-1/2 flex-col justify-center text-center">
+                        <div className="text-2xl my-10">Dinner Menu</div>
+                        <Divider color="white" />
+                        <div className="w-full flex justify-center text-center my-14">
+                            <iframe className="w-full h-96" src="/dinnerMenu.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Breakfast Menu"></iframe>   
+                        </div>
+                    </div>
+                    <Divider orientation="vertical" color="black" className="hidden md:flex mx-10"  />
+                    <div className="w-full md:w-1/2 flex-col justify-center text-center">
+                        <div className="text-2xl my-10">Kids Menu</div>
+                        <Divider color="white" />
+                        <div className="w-full flex justify-center text-center my-14">
+                            <iframe className="w-full h-96" src="/kidsMenu.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Breakfast Menu"></iframe>   
+                        </div>
+                    </div>                
+                </div>
+                
+                
+                
+                {/* <div className="flex justify-center w-full absolute z-40">
                     <AnimatePresence>
                         {outData.id &&
                             <>
@@ -116,10 +156,10 @@ export default function Menu(props) {
                             </>
                         }
                     </AnimatePresence>
-                </div>
+                </div> */}
             </div>
 
-            <div className="justify-center text-center">
+            {/* <div className="justify-center text-center">
                 <OrderNowButton buttonColor={buttonColor} />
                 <div className="text-xl">
                     Make sure to follow us on
@@ -142,7 +182,7 @@ export default function Menu(props) {
                     </motion.a>
                     for updates
                 </div>
-            </div>
+            </div> */}
 
 
 
