@@ -1,4 +1,4 @@
-import { Typography, Stack } from "@mui/material";
+import { Typography, Stack, Button } from "@mui/material";
 import MapIcon from "@mui/icons-material/Map";
 import MailIcon from "@mui/icons-material/Mail";
 
@@ -59,14 +59,14 @@ export default function InfoStrip() {
 						<a href={"tel:4358356500"} className="link link-hover">
 							+1 (435)835-6500
 						</a>
-						<a
+						<Button
 							href="https://www.charleesonline.com/"
 							target="_blank"
 							rel="noreferrer"
 							className="link link-hover"
 						>
 							Info and hours
-						</a>
+						</Button>
 					</Stack>
 				</Stack>
 			</div>
