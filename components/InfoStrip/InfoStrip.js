@@ -57,7 +57,7 @@ export default function InfoStrip() {
 							charleescomfortkitchen@gmail.com
 						</a>
 						<a href={"tel:4358356500"} className="link link-hover">
-							(435)835-6500
+							+1 (435)835-6500
 						</a>
 						<Button
 							href="https://www.charleesonline.com/"
