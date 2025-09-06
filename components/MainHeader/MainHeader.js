@@ -1,10 +1,24 @@
 import React from "react"
 import { motion } from "framer-motion"
 
+const getPathMap = (path) => {
+    switch (path) {
+        case "/":
+            return 1;
+        case "/gallery":
+            return 2;
+        case "/about":
+            return 3;
+        case "/calendar":
+            return 4;
+    }
+}
+
 export default function MainHeader(props) {
 
-    const header = props.header.data.homepageBannerCollection.items;
-
+    /* const header = props.header.data.homepageBannerCollection.items; */
+    console.log(props)
+    const page = getPathMap(props.pathname)
     const sentence = {
         hidden: { opacity: 1 },
         visible: {
@@ -31,7 +45,7 @@ export default function MainHeader(props) {
                 <div className="hero-content text-center text-white">
                     <div className="max-w-lg pt-32 xs:pt-0">
 
-                        {header.map((header) => (
+                        {/* {header.map((header) => (
                             <>
                                 {header.page === props.page &&
                                     <>
@@ -85,7 +99,7 @@ export default function MainHeader(props) {
                                 }
 
                             </>
-                        ))}
+                        ))} */}
 
                     </div>
                 </div>

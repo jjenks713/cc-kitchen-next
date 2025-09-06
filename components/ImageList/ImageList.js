@@ -65,7 +65,7 @@ export default function GalImageList(props) {
                                                         initial={{ opacity: 0 }}
                                                         animate={{ opacity: 1 }}
                                                     >
-                                                        <Image //eslint-disable-line
+                                                        <Image
                                                             width={100}
                                                             height={100}
                                                             src={photo.image.url}

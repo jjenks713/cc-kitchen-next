@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+/* import { useEffect } from "react";
 import usePersistentState from "./usePersistantState";
 
 export default function useInfoCards() {
@@ -33,4 +33,4 @@ async function getServerSideProps({ preview = true }) {
     const infoCards = (await getInfoCards(preview)) ?? []
 
     return infoCards 
-  }
+  } */
