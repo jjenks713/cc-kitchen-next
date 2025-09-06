@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import MainHeader from "../components/MainHeader/MainHeader";
-import GalImageList from "../components/ImageList/ImageList";
-import Head from "next/head";
-import { getHeaders, getGalImages, getAnnouncement } from "../lib/api";
-import { motion } from "framer-motion";
-import Announcement from "../components/Announcement/Announcement";
-import SubscribePanel from "../components/SubscribePanel/SubscribPanel";
-import InfoStrip from "../components/InfoStrip/InfoStrip";
-import { Stack, Box } from "@mui/material";
+import React, { useEffect, useState } from 'react';
+import MainHeader from '../components/MainHeader/MainHeader'
+import GalImageList from '../components/ImageList/ImageList'
+import Head from 'next/head';
+import { getInfoCards, getHeaders, getGalImages, getAnnouncement, getGalTotal } from '../lib/api'
+import { motion } from 'framer-motion';
+import Announcement from '../components/Announcement/Announcement';
+import SubscribePanel from '../components/SubscribePanel/SubscribPanel';
+import InfoStrip from '../components/InfoStrip/InfoStrip';
+import { Stack, Box } from '@mui/material';
 
-export default function Home({ preview, headers, galImages, announcement }) {
-	/* const [tags, setTags] = useState("gallery-images")
+export default function Home(props) {
+    /* const [tags, setTags] = useState("gallery-images")
     const [title, setTitle] = useState("All") */
-
-	const page = 2;
+    const { infoCards, headers, galImages, announcement, totalPages, currentPage } = props
+    const page = 2
 
 	const navTabs = [
 		{
@@ -81,25 +81,27 @@ export default function Home({ preview, headers, galImages, announcement }) {
                                 {title}
                             </motion.div>
                         </div> */}
-						<GalImageList galImages={galImages} /* tags={tags} */ />
-					</Stack>
-				</Stack>
-			</main>
-			<SubscribePanel />
-			<InfoStrip />
-			{announcement.data.announcement ? (
-				<Announcement announcement={announcement} />
-			) : null}
-		</div>
-	);
+                        <GalImageList galImages={galImages} totalPages={totalPages} currentPage={currentPage} /* tags={tags} */ />
+                    </Stack>
+                </Stack>
+            </main>
+            <SubscribePanel />
+            <InfoStrip infoCards={infoCards} />
+            {announcement.data.announcement ? <Announcement announcement={announcement} /> : null}
+        </div>
+    )
 }
 
 export async function getStaticProps({ preview = true }) {
-	const headers = (await getHeaders(preview)) ?? [];
-	const galImages = (await getGalImages(preview)) ?? [];
-	const announcement = (await getAnnouncement(preview)) ?? [];
+    const infoCards = (await getInfoCards(preview)) ?? []
+    const headers = (await getHeaders(preview)) ?? []
+    const galImages = (await getGalImages(preview, 1)) ?? []
+    const galTotal = (await getGalTotal() ?? []);
+    const announcement = (await getAnnouncement(preview)) ?? []
 
-	return {
-		props: { preview, headers, galImages, announcement },
-	};
+    const totalPages = Math.ceil(galImages.total / 10)
+
+    return {
+        props: { infoCards, headers, galImages: galImages.items, announcement, totalPages, currentPage: "1" },
+    }
 }

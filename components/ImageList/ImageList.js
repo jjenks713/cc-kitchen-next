@@ -14,16 +14,15 @@ import { motion } from 'framer-motion';
 export default function GalImageList(props) {
 
     const [loading, setLoading] = useState(false)
-    const galleryImages = props.galImages.data.galleryCollection.items;
+    const {galImages, totalPages, currentPage} = props;
     /* const tags = props.tags; */
 
     let [page, setPage] = useState(1);
     const PER_PAGE = 10;
+    console.log(galImages, totalPages, currentPage)
+    /* const _DATA = usePagination(galleryImages.items, PER_PAGE); */
   
-    const count = Math.ceil(galleryImages.length / PER_PAGE);
-    const _DATA = usePagination(galleryImages, PER_PAGE);
-  
-    const handleChange = (e, p) => {
+    /* const handleChange = (e, p) => {
         setLoading(true);
         window.scrollTo({ top: 500, left: 0, behavior: 'smooth' })
         setPage(p);
@@ -31,10 +30,8 @@ export default function GalImageList(props) {
         setTimeout(() => {
             setLoading(false)
         }, 1000)
-    };
+    }; */
 
-
-    console.log(galleryImages)
     return (            
         <div className='mb-20 mt-4 mx-0 lg:mx-24' style={{height: loading ? '1000px' : 'inherit'}}>
             {loading ?
@@ -43,7 +40,7 @@ export default function GalImageList(props) {
                 </Box>
                 :
                 <>
-                    {galleryImages ?
+                    {galImages ?
                         <ImageList
                             variant="masonry"
                             sx={{
@@ -58,7 +55,7 @@ export default function GalImageList(props) {
                             className='m-2 md:mb-10 rounded-lg md:p-10'
                         >
                             {
-                                _DATA.currentData().map((photo) => (
+                                galImages.map((photo) => (
                                     <>
                                         
                                         <ImageListItem className='m-5 rounded-xl relative'>
@@ -102,11 +99,11 @@ export default function GalImageList(props) {
 
                     <Box sx={{color: 'white'}} display={'flex'} justifyContent={'center'}>
                         <Pagination
-                            count={count}
+                            count={totalPages}
                             size="large"
-                            page={page}
+                            page={currentPage}
                             shape="rounded"
-                            onChange={handleChange}
+                            onChange={currentPage + 1}
                             sx={{color: 'white !important', backgroundColor: 'white', borderRadius: '16px'}}
                         />
                     </Box>

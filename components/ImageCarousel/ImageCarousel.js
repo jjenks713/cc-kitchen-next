@@ -6,7 +6,7 @@ import OrderNowButton from "../OrderNowButton/OrderNowButton";
 
 export default function ImageCarousel(props) {
 
-    const galleryImages = props.galImages.data.galleryCollection.items;
+    const { galleryImages } = props;
     const [indexTab, setIndex] = useState(0);
 
     useEffect(() => {
