@@ -10,5 +10,6 @@ module.exports = {
 				pathname: "/l9muyz0wgeyb/**",
 			},
 		],
+		domains: ['images.ctfassets.net'],
 	},
 };
