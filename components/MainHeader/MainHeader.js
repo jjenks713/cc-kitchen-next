@@ -71,7 +71,7 @@ export default function MainHeader(props) {
                                                 whileHover={{ scale: 1.1 }}
                                             >
                                                 <a
-                                                    href='https://charlees-comfort-kitchen.square.site'
+                                                    href='https://www.charleesonline.com/'
                                                     target='_black'
                                                     className='btn glass text-white'
                                                 >
